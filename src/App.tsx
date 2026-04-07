@@ -1,19 +1,16 @@
-import './styles/global.css';
-import './styles/theme.css';
-import { Heading } from './components/Heading';
-import { TimerIcon } from 'lucide-react';
+import { TaskContextProvider } from './contexts/TaskContext/TaskContextProvider';
+import { MessagesContainer } from './components/MessagesContainer';
+import { MainRouter } from './routers/MainRouter';
 
-function App() {
+import './styles/theme.css';
+import './styles/global.css';
+
+export function App() {
   return (
-    <>
-      <Heading>
-        Hello, React with TypeScript!
-        <button>
-          <TimerIcon />
-        </button>
-      </Heading>
-    </>
+    <TaskContextProvider>
+      <MessagesContainer>
+        <MainRouter />
+      </MessagesContainer>
+    </TaskContextProvider>
   );
 }
-
-export default App;
